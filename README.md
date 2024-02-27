@@ -1,4 +1,5 @@
 # Stardew Valley Wiki at Dusk
+![Example Screenshot](https://raw.githubusercontent.com/voltaek/SVWikiDusk/main/example.png)
 A UserCSS for the official Stardew Valley wiki @ stardewvalleywiki.com
 
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://raw.githubusercontent.com/voltaek/SVWikiDusk/main/userstyle.user.css)
