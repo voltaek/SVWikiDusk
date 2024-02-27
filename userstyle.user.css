@@ -1,0 +1,231 @@
+/* ==UserStyle==
+@name           Stardew Valley Wiki at Dusk
+@author         voltaek
+@version        1.0.0
+@namespace      github.com/voltaek/SVWikiDusk
+@license		CC-BY-SA-4.0
+@description    The Stardew Valley wiki, but darkened as though it was dusk.
+	As much of the original look and feel was maintained as possible, by adjusting and re-using existing colors wherever possible.
+Darkening Notes: Pretty much all of these colors are the original site colors converted to HSL with their Lightness
+	then adjusted by 30% to 60%, up or down, depending on the context.
+Intended Application: These adjustments were all made to be applied on top of the wiki's "Legacy" Vector skin.
+	Most of them will probably still work without the "Legacy" option on, but likely none will work with the MinervaNeue skin,
+	though as that skin leaves the site mostly white and plain, it doesn't look like it has been developed/configured.
+==/UserStyle== */
+
+@-moz-document domain("stardewvalleywiki.com") {
+	:root {
+		--orig-body-bg-image: url("/mediawiki/extensions/StardewValley/images/stardewbackground.png");
+		--orig-body-text-color: #202122;
+		
+		--drkn-body-text-color: hsl(210 3% 82%);
+
+		/* This is the original menu_border.png, just darkened by 25% */
+		--drkn-menu-border-png: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtBAMAAADINP+pAAAAHlBMVEUAAAAjIyNkKAQzDhWFOgSlXAS8bgQfCA1taVdEICCFFqF9AAAAAnRSTlMAZtJCCVUAAACCSURBVDjLYwAB9nIEKDY2NgAKkSNubBqKAoKNyRFnNg4NS0MBqaHGBiSLCwobu3h0uCCBjlYyxZVUXFyclODAxZV8cSUFWBgyjYrTThwR/kA2+eIaqOmhxYUccUHBmZOUEEBzppKysaAAyeIMjIJAK1CAoSADA4niYCCIAkCCpIsDAJuWttrwUW3sAAAAAElFTkSuQmCC");
+	}
+
+	/*
+	Darken the site's normal bg image by putting a transparent gradient over it.
+	Adding `.mediawiki` avoids putting a background on image file pages.
+	*/
+	body.mediawiki {
+		background-image: linear-gradient(hsl(0deg 0% 0% / 50%), hsl(0deg 0% 0% / 70%), hsl(0deg 0% 0% / 70%)), var(--orig-body-bg-image);
+		/* The main site has these styles already, but some of the "special" pages like user prefs don't define these */
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+
+	#mw-page-base {
+		/* Special pages like the login page are missing this, but the rest of the site has it */
+		background: none;
+	}
+
+	/* MAIN CONTENT AND HEADINGS */
+	.mw-body {
+		background-color: hsl(189deg 30% 21% / 67%);
+		color: var(--drkn-body-text-color);
+	}
+	h1, h2, h3, h4, h5, h6,
+	.portal h3, .vector-menu-portal h3 {
+		color: hsl(0 0% 90%);
+	}
+
+	/* Site's search box in header */
+	#searchInput {
+		background-color: rgba(255,255,255,0.2);
+		color: hsl(0 0% 90%);
+	}
+	#searchInput::placeholder {
+		color: hsl(213 5% 67%);
+	}
+
+	/* LINKS */
+	a,
+	.portal .body li a, .vector-menu-portal .body li a,
+	.toctogglelabel,
+	.mw-parser-output a.extiw, .mw-parser-output a.external {
+		color: hsl(217 93% 75%);
+	}
+	a:visited,
+	.portal .body li a:visited, .vector-menu-portal .body li a:visited {
+		color: hsl(245 100% 75%);
+	}
+	.mw-parser-output a.extiw:visited, .mw-parser-output a.external:visited {
+		color: hsl(300 33% 65%);
+	}
+	/* file contributors, logged-in user links, other logged-in links */
+	a.new, #p-personal a.new,
+	a.new:visited, #p-personal a.new:visited,
+	a.stub {
+		color: hsl(0 100% 66%);
+	}
+	/* on page history */
+	.autocomment, .autocomment a, .autocomment a:visited {
+		color: hsl(213 5% 60%);
+	}
+	/* restore default color due to the light bg of `code` elements */
+	code a,
+	code a:active,
+	code a:visited {
+		color: #0645ad;
+	}
+
+	/* Numbers in table of contents boxes */
+	.tocnumber {
+		color: var(--drkn-body-text-color);
+	}
+
+	/* Replace the SVG bullet with default one so it matches body text color */
+	ul {
+		list-style-image: none;
+	}
+
+	/* Darken content listing / links boxes */
+	div#mw-panel,
+	#toc, .toc,
+	#infoboxborder,
+	.mw-parser-output .basicsnavtable,
+	div.thumbinner,
+	li.gallerybox div.thumb,
+	.catlinks,
+	#filetoc,
+	#c-fairuse {
+		background-color: hsl(0deg 0% 20% / 58%);
+	}
+
+	/* Darken various borders of content boxes */
+	.toc, .mw-warning, .toccolours,
+	html .thumbimage,
+	li.gallerybox div.thumb {
+		border-color: hsl(212 9% 46%);
+	}
+	.mw-body,
+	table.wikitable > tr > td, table.wikitable > * > tr > td,
+	table.wikitable.roundedborder,
+	#navbox,
+	div.thumbinner,
+	.catlinks,
+	.mw-parser-output .basicsnavtable,
+	.mw-parser-output #mainmenucontainer table.wikitable td div.bordered /* bottom of homepage */ {
+		border-color: hsl(205 87% 27%);
+	}
+	/* These are the wood image-bordered boxes */
+	#menuborder,
+	#infoboxborder,
+	div#mw-panel {
+		border-image-source: var(--drkn-menu-border-png);
+	}
+
+	/* NPC Heart Event question answers and page revision history */
+	table b span[style="color: #000;"] {
+		color: hsl(0 0% 90%) !important;
+	}
+	table b span[style="color: #060;"],
+	.mw-plusminus-pos {
+		color: hsl(120 100% 40%) !important;
+	}
+	table b span[style="color: #600;"],
+	.mw-plusminus-neg {
+		color: hsl(0 100% 60%) !important;
+	}
+
+	/* Darken tables */
+	.wikitable {
+		color: var(--drkn-body-text-color);
+	}
+	table.wikitable > tr > th, table.wikitable > * > tr > th,
+	#infoboxsection,
+	.mw_metadata th {
+		/* Don't darken these too much or the table-sorting icons (arrows, etc.) will become difficult to see */
+		background-color: hsl(122 96% 21%);
+		border-color: hsl(157 100% 22%);
+		color: hsl(0 0% 90%);
+	}
+	table.wikitable > tr > th a, table.wikitable > * > tr > th a {
+		color: hsl(0 0% 90%);
+	}
+	table.wikitable > tr > td, table.wikitable > * > tr > td,
+	.mw_metadata td,
+	.mw-parser-output #mainmenucontainer table.wikitable /* homepage */ {
+		background-color: hsl(0deg 0% 20% / 58%);
+	}
+
+	/*
+	Dealing with table cells with inline, custom background colors, like one for the levels of The Mines.
+	The 'transparent' bit is to avoid darkening the bg of tables like the "Agriculturist and Speed-Gro Comparison" on crop pages.
+	*/
+	td[style*="background:"], td[style*="background-color:"]:not([style*="background-color: transparent"]) {
+		background-image: linear-gradient(hsl(0deg 0% 0% / 60%), hsl(0deg 0% 0% / 60%)) !important;
+	}
+	/* Dealing with table headers with inline, custom background colors, like NPC schedules.*/ 
+	th[style*="background:"], th[style*="background-color:"] {
+		background-image: linear-gradient(hsl(0deg 0% 0% / 65%), hsl(0deg 0% 0% / 65%)) !important;
+	}
+
+	/* This is the specific inline styling for when keyboard keys are shown inline, like the Shift key on the Version History page or at the top of the Pierre's General Store page */
+	span[style="display:inline-block; padding:0px 3px; border-radius:4px; border-style:outset; background:#FFFFFF; background: -webkit-linear-gradient(#FCFCFC, #E0E0E0); background: linear-gradient(#FCFCFC, #E0E0E0);"] {
+		color: var(--orig-body-text-color);
+	}
+
+	/* This is just for user preference pages */
+	.oo-ui-labelWidget.oo-ui-inline-help {
+		color: hsl(207 5% 60%);
+	}
+
+	/*
+	Mostly on the Mods pages, but `code` is throughout the site, too, for things like calculations.
+	Only slightly darken the background so we don't make the syntax highlighting used in `pre` useless.
+	*/
+	code,
+	pre, .mw-code {
+		background-color: hsl(210 17% 68%);
+		border-color: hsl(220 17% 63%);
+	}
+	div[style*="background: #A1DEE2;"] {
+		background-color: hsl(184 53% 21%) !important;
+	}
+	.mw-parser-output .modding-error-box {
+		background-color: hsl(0 100% 20%);
+	}
+
+	/* Lighten some gray text. Found on https://stardewvalleywiki.com/Modding:Index */
+	#mw-content-text span[style="color: gray;"] {
+		color: hsl(0 0% 70%) !important;
+	}
+
+	/* Overrides for the Mod Compatibility table due to the light background colors used */
+	#mod-list tr.mod[data-status="workaround"],
+	#mod-list tr.mod[data-status="unofficial"] {
+		/* Make this one more yellow so it's better differentiated from the green one */
+		background-color: hsl(70, 100%, 80%) !important;
+	}
+	#mod-list > tr.mod[data-status] > td, #mod-list > * > tr.mod[data-status] > td {
+		background-color: hsl(0deg 0% 0% / 65%);
+	}
+	.mw-parser-output #mod-list tr.mod:not([data-github]):not([data-custom-url]) .mod-source span {
+		opacity: 1;
+		color: hsl(0 100% 45%);
+	}
+}
