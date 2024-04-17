@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Stardew Valley Wiki at Dusk
 @author         voltaek
-@version        1.0.0
+@version        1.1.0
 @namespace      github.com/voltaek/SVWikiDusk
 @license		CC-BY-SA-4.0
 @description    The Stardew Valley wiki, but darkened as though it was dusk.
@@ -111,8 +111,18 @@ Intended Application: These adjustments were all made to be applied on top of th
 	li.gallerybox div.thumb,
 	.catlinks,
 	#filetoc,
-	#c-fairuse {
+	#c-fairuse,
+	#mw-searchoptions {
 		background-color: hsl(0deg 0% 20% / 58%);
+	}
+	
+	/* Spoiler Warning Box */
+	#infoboxborder[style*="background-color: #F6B569;"] {
+		background-color: hsl(32 69% 59%) !important; /* slightly darker and less saturated */
+		color: #521509; /* same color as its heading */
+	}
+	#infoboxborder[style*="background-color: #F6B569;"] a {
+		color: #0645ad; /* default link color */
 	}
 
 	/* Darken various borders of content boxes */
@@ -150,7 +160,7 @@ Intended Application: These adjustments were all made to be applied on top of th
 	.mw-plusminus-neg {
 		color: hsl(0 100% 60%) !important;
 	}
-
+	
 	/* Darken tables */
 	.wikitable {
 		color: var(--drkn-body-text-color);
@@ -159,8 +169,8 @@ Intended Application: These adjustments were all made to be applied on top of th
 	#infoboxsection,
 	.mw_metadata th {
 		/* Don't darken these too much or the table-sorting icons (arrows, etc.) will become difficult to see */
-		background-color: hsl(122 96% 21%);
-		border-color: hsl(157 100% 22%);
+		background-color: hsl(122 96% 18%);
+		border-color: hsl(157 100% 19%);
 		color: hsl(0 0% 90%);
 	}
 	table.wikitable > tr > th a, table.wikitable > * > tr > th a {
@@ -227,5 +237,18 @@ Intended Application: These adjustments were all made to be applied on top of th
 	.mw-parser-output #mod-list tr.mod:not([data-github]):not([data-custom-url]) .mod-source span {
 		opacity: 1;
 		color: hsl(0 100% 45%);
+	}
+	
+	/* Handle inline-styled "alerts" on the Modding 1.6 Migration page */
+	/* Cut saturation in ~half and dropped background L to ~25% and border L to 40% */
+	div[style="border: 1px solid #0C0; background: #CFC; padding: 0.5em; border-radius: 2px;"] {
+		background: hsl(120 60% 24%) !important;
+		border: 2px solid hsl(120 50% 40%) !important;
+		border-radius: 0.5em !important;
+	}
+	div[style="border: 1px solid #C00; background: #FCC; padding: 0.5em; border-radius: 2px;"] {
+		background: hsl(0 50% 25%) !important;
+		border: 2px solid hsl(0 50% 40%) !important;
+		border-radius: 0.5em !important;
 	}
 }
