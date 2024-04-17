@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Stardew Valley Wiki at Dusk
 @author         voltaek
-@version        1.1.0
+@version        1.1.1
 @namespace      github.com/voltaek/SVWikiDusk
 @license		CC-BY-SA-4.0
 @description    The Stardew Valley wiki, but darkened as though it was dusk.
@@ -250,5 +250,16 @@ Intended Application: These adjustments were all made to be applied on top of th
 		background: hsl(0 50% 25%) !important;
 		border: 2px solid hsl(0 50% 40%) !important;
 		border-radius: 0.5em !important;
+	}
+	
+	/* Green alerts on the Modding:Maps page */
+	div[style="border-radius: 3px; padding: 8px; background: #e3fcef; min-height: 3em; display: flex; flex-direction: row; align-items: center; max-width: 60em;"] {
+		background: hsl(149 81% 28%) !important; /* dark version of existing bg color */
+		color: hsl(210 3% 87%) !important; /* slightly lighter body text color */
+	}
+	
+	/* Red alert on Using XNB Mods page (made extra red because DON'T USE XNB MODS) */
+	div[style="border: 1px solid red; background: #FCC; padding: 1em;"] {
+		background-color: #c00 !important;
 	}
 }
