@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Stardew Valley Wiki at Dusk
 @author         voltaek
-@version        1.1.1
+@version        1.1.2
 @namespace      github.com/voltaek/SVWikiDusk
 @license		CC-BY-SA-4.0
 @description    The Stardew Valley wiki, but darkened as though it was dusk.
@@ -239,6 +239,8 @@ Intended Application: These adjustments were all made to be applied on top of th
 		color: hsl(0 100% 45%);
 	}
 	
+	/* MANY INLINE-STYLED "ALERTS" */
+	
 	/* Handle inline-styled "alerts" on the Modding 1.6 Migration page */
 	/* Cut saturation in ~half and dropped background L to ~25% and border L to 40% */
 	div[style="border: 1px solid #0C0; background: #CFC; padding: 0.5em; border-radius: 2px;"] {
@@ -255,6 +257,18 @@ Intended Application: These adjustments were all made to be applied on top of th
 	/* Green alerts on the Modding:Maps page */
 	div[style="border-radius: 3px; padding: 8px; background: #e3fcef; min-height: 3em; display: flex; flex-direction: row; align-items: center; max-width: 60em;"] {
 		background: hsl(149 81% 28%) !important; /* dark version of existing bg color */
+		color: hsl(210 3% 87%) !important; /* slightly lighter body text color */
+	}
+
+	/* Yellow alert on Modding:Console commands page */
+	div[style="border-radius: 3px; padding: 8px; background: #fffae6; min-height: 3em; display: flex; flex-direction: row; align-items: center; max-width: 60em;"] {
+		background: hsl(48 100% 42%) !important; /* dark version of existing bg color */
+		color: hsl(210 3% 10%) !important; /* for a yellow bg, had to flip to dark text */
+	}
+	
+	/* Pink alert on Modding:Console commands page */
+	div[style="border-radius: 3px; padding: 8px; background: #ffebe6; min-height: 3em; display: flex; flex-direction: row; align-items: center; max-width: 60em;"] {
+		background: hsl(12 100% 35%) !important; /* dark version of existing bg color */
 		color: hsl(210 3% 87%) !important; /* slightly lighter body text color */
 	}
 	
